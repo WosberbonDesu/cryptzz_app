@@ -20,5 +20,5 @@ class Currency {
         this.rank = int.parse(json["rank"]),
         this.rankDelta = int.parse(json["rank_delta"]),
         this.oneDayChange = double.parse(json["1d"]["price_change_pct"]),
-        this.oneHourChange = double.parse(json["1h"]["price_change_pct"]);
+        this.oneHourChange = double.parse(json["1d"]["price_change_pct"]);
 }

@@ -1,5 +1,8 @@
+import 'package:cryptzz_app/business/constants/colors.dart';
+import 'package:cryptzz_app/providers/currency_provider.dart';
 import 'package:cryptzz_app/utils/currecy_data_source.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class CurrenciesWidget extends StatelessWidget {
@@ -7,7 +10,19 @@ class CurrenciesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SfDataGrid(source: currencyDataSource, columns: buildGridColumns());
+    final provider = Provider.of<CurrencyProvider>(context);
+    final currencyDataSource = provider.currencyDataSource;
+    if (currencyDataSource == null) {
+      return Center(
+        child: const CircularProgressIndicator(
+          color: Colors.white,
+        ),
+      );
+    } else {
+      print(buildGridColumns());
+      return SfDataGrid(
+          source: currencyDataSource, columns: buildGridColumns());
+    }
   }
 
   List<GridColumn> buildGridColumns() => <GridColumn>[
@@ -43,5 +58,6 @@ class CurrenciesWidget extends StatelessWidget {
       ];
   Widget buildLabel(String text) => Text(
         text,
+        style: TextStyle(color: Colors.white),
       );
 }

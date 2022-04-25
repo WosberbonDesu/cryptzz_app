@@ -1,3 +1,4 @@
+import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,7 +17,10 @@ class RoundedButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => CurrenciesWidget()));
+      },
       borderRadius: BorderRadius.circular(30),
       child: Container(
         width: size.width * 0.8,
