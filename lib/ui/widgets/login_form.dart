@@ -1,4 +1,6 @@
+import 'package:cryptzz_app/ui/widgets/globalWidgets/gradient_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'login_components/rounded_button.dart';
 import 'login_components/rounded_input.dart';
@@ -33,22 +35,29 @@ class LoginForm extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Welcome Back',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                GradientText(
+                  "Cryptzz",
+                  gradient: LinearGradient(colors: [
+                    Color(0xFF364F6B),
+                    Color(0xFF3FC1C9),
+                    Color(0xFF3F0071),
+                    Color(0xFFFC5185)
+                  ]),
+                  style: GoogleFonts.lato(
+                      fontStyle: FontStyle.italic, fontSize: 48),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Image.asset(
                   'assets/nft-modified-1.png',
                   width: 100,
                   height: 100,
                 ),
-                SizedBox(height: 40),
-                RoundedInput(icon: Icons.mail, hint: 'Username'),
-                RoundedPasswordInput(hint: 'Password'),
-                SizedBox(height: 10),
-                RoundedButton(title: 'LOGIN'),
-                SizedBox(height: 10),
+                const SizedBox(height: 40),
+                const RoundedInput(icon: Icons.mail, hint: 'Username'),
+                const RoundedPasswordInput(hint: 'Password'),
+                const SizedBox(height: 10),
+                const RoundedButton(title: 'LOGIN'),
+                const SizedBox(height: 10),
               ],
             ),
           ),
