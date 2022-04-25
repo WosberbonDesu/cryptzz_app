@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../business/constants/colors.dart';
 import '../widgets/cancelButton.dart';
@@ -148,7 +149,8 @@ class _LoginScreenState extends State<LoginScreen>
           child: isLogin
               ? Text(
                   "Don't have an account? Sign up",
-                  style: TextStyle(color: kPrimaryColor, fontSize: 18),
+                  style: GoogleFonts.unifrakturCook(
+                      fontSize: 18, color: kPrimaryColor),
                 )
               : null,
         ),

@@ -35,17 +35,19 @@ class LoginForm extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GradientText(
-                  "Cryptzz",
-                  gradient: LinearGradient(colors: [
-                    Color(0xFF364F6B),
-                    Color(0xFF3FC1C9),
-                    Color(0xFF3F0071),
-                    Color(0xFFFC5185)
-                  ]),
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.italic, fontSize: 48),
+                const SizedBox(
+                  height: 10,
                 ),
+                GradientText("Cryptzzz",
+                    gradient: LinearGradient(colors: [
+                      Color(0xFF000000),
+                      Color(0xFF0f005b),
+                      Color(0xFF2e0059),
+                      Color(0xFF5b0000),
+                      Color(0xFF000000)
+                    ]),
+                    style: GoogleFonts.unifrakturCook(
+                        fontStyle: FontStyle.normal, fontSize: 48)),
                 const SizedBox(height: 40),
                 Image.asset(
                   'assets/nft-modified-1.png',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../business/constants/colors.dart';
 import 'input_container.dart';
@@ -14,6 +15,7 @@ class RoundedInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return InputContainer(
         child: TextField(
+      style: GoogleFonts.unifrakturCook(),
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
           icon: Icon(icon, color: kPrimaryColor),

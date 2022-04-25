@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../business/constants/colors.dart';
 
@@ -27,7 +28,7 @@ class RoundedButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: GoogleFonts.unifrakturCook(fontSize: 10, color: Colors.white),
         ),
       ),
     );
