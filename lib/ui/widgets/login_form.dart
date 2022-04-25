@@ -37,20 +37,17 @@ class LoginForm extends StatelessWidget {
                   'Welcome Back',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
-
                 SizedBox(height: 40),
-
-                //SvgPicture.asset('assets/images/login.svg'),
+                Image.asset(
+                  'assets/nft-modified-1.png',
+                  width: 100,
+                  height: 100,
+                ),
                 SizedBox(height: 40),
-
                 RoundedInput(icon: Icons.mail, hint: 'Username'),
-
                 RoundedPasswordInput(hint: 'Password'),
-
                 SizedBox(height: 10),
-
                 RoundedButton(title: 'LOGIN'),
-
                 SizedBox(height: 10),
               ],
             ),
