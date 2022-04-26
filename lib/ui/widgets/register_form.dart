@@ -5,7 +5,13 @@ import 'login_components/rounded_input.dart';
 import 'login_components/rounded_password_input.dart';
 
 class RegisterForm extends StatelessWidget {
-  const RegisterForm({
+  final GlobalKey<FormState> formKey = GlobalKey();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final usernameController = TextEditingController();
+  final nameController = TextEditingController();
+
+  RegisterForm({
     Key? key,
     required this.isLogin,
     required this.animationDuration,
@@ -48,11 +54,20 @@ class RegisterForm extends StatelessWidget {
 
                   const SizedBox(height: 40),
 
-                  const RoundedInput(icon: Icons.mail, hint: 'Username'),
+                  RoundedInput(
+                    icon: Icons.mail,
+                    hint: 'Username',
+                    controller: usernameController,
+                  ),
 
-                  const RoundedInput(icon: Icons.face_rounded, hint: 'Name'),
+                  RoundedInput(
+                    icon: Icons.face_rounded,
+                    hint: 'Name',
+                    controller: nameController,
+                  ),
 
-                  const RoundedPasswordInput(hint: 'Password'),
+                  RoundedPasswordInput(
+                      controllerPas: passwordController, hint: 'Password'),
 
                   const SizedBox(height: 10),
 
