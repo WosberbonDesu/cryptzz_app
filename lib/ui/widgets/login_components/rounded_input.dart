@@ -22,10 +22,11 @@ class RoundedInput extends StatelessWidget {
         child: TextField(
       controller: controller,
       //style: GoogleFonts.unifrakturCook(),
-      cursorColor: kPrimaryColor,
+      cursorColor: Colors.white,
       decoration: InputDecoration(
-          icon: Icon(icon, color: kPrimaryColor),
+          icon: Icon(icon, color: Colors.white),
           hintText: hint,
+          hintStyle: TextStyle(color: Colors.white),
           border: InputBorder.none),
     ));
   }

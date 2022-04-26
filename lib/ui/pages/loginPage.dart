@@ -57,77 +57,86 @@ class _LoginScreenState extends State<LoginScreen>
             return const TabsScreen();
           } else {
             return Scaffold(
-              body: Stack(
-                children: [
-                  // Lets add some decorations
-                  Positioned(
-                      top: 100,
-                      right: -50,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: kPrimaryColor),
-                      )),
-
-                  Positioned(
-                      top: -50,
-                      left: -50,
-                      child: Container(
-                        width: 200,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: kPrimaryColor),
-                      )),
-
-                  // Cancel Button
-                  CancelButton(
-                    isLogin: isLogin,
-                    animationDuration: animationDuration,
-                    size: size,
-                    animationController: animationController,
-                    tapEvent: isLogin
-                        ? null
-                        : () {
-                            // returning null to disable the button
-                            animationController!.reverse();
-                            setState(() {
-                              isLogin = !isLogin;
-                            });
-                          },
+              body: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        "https://cdna.artstation.com/p/assets/images/images/022/476/346/large/michal-kvac-correct-reality-glitch-small.jpg?1575566214"),
+                    fit: BoxFit.cover,
                   ),
+                ),
+                child: Stack(
+                  children: [
+                    // Lets add some decorations
+                    //Positioned(
+                    //top: 100,
+                    //right: -50,
+                    //child: Container(
+                    //width: 100,
+                    //height: 100,
+                    //decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(50),
+                    //color: kPrimaryColor),
+                    // )),
 
-                  // Login Form
-                  LoginForm(
+                    //Positioned(
+                    //top: -50,
+                    //left: -50,
+                    //child: Container(
+                    //width: 200,
+                    //height: 200,
+                    //decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(100),
+                    //color: kPrimaryColor),
+                    //)),
+
+                    // Cancel Button
+                    CancelButton(
                       isLogin: isLogin,
                       animationDuration: animationDuration,
                       size: size,
-                      defaultLoginSize: defaultLoginSize),
+                      animationController: animationController,
+                      tapEvent: isLogin
+                          ? null
+                          : () {
+                              // returning null to disable the button
+                              animationController!.reverse();
+                              setState(() {
+                                isLogin = !isLogin;
+                              });
+                            },
+                    ),
 
-                  // Register Container
-                  AnimatedBuilder(
-                    animation: animationController!,
-                    builder: (context, child) {
-                      if (viewInset == 0 && isLogin) {
-                        return buildRegisterContainer();
-                      } else if (!isLogin) {
-                        return buildRegisterContainer();
-                      }
+                    // Login Form
+                    LoginForm(
+                        isLogin: isLogin,
+                        animationDuration: animationDuration,
+                        size: size,
+                        defaultLoginSize: defaultLoginSize),
 
-                      // Returning empty container to hide the widget
-                      return Container();
-                    },
-                  ),
+                    // Register Container
+                    AnimatedBuilder(
+                      animation: animationController!,
+                      builder: (context, child) {
+                        if (viewInset == 0 && isLogin) {
+                          return buildRegisterContainer();
+                        } else if (!isLogin) {
+                          return buildRegisterContainer();
+                        }
 
-                  // Register Form
-                  RegisterForm(
-                      isLogin: isLogin,
-                      animationDuration: animationDuration,
-                      size: size,
-                      defaultLoginSize: defaultRegisterSize),
-                ],
+                        // Returning empty container to hide the widget
+                        return Container();
+                      },
+                    ),
+
+                    // Register Form
+                    RegisterForm(
+                        isLogin: isLogin,
+                        animationDuration: animationDuration,
+                        size: size,
+                        defaultLoginSize: defaultRegisterSize),
+                  ],
+                ),
               ),
             );
           }

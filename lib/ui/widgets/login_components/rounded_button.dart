@@ -1,12 +1,11 @@
-import 'package:cryptzz_app/providers/AppState.dart';
 import 'package:cryptzz_app/ui/pages/tab_pages/main_tab.dart';
-import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../business/constants/colors.dart';
-import '../../../business/constants/global_context.dart';
+
 import '../../../main.dart';
 
 class RoundedButton extends StatelessWidget {

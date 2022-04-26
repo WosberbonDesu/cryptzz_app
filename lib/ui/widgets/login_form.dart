@@ -43,12 +43,12 @@ class LoginForm extends StatelessWidget {
                   height: 10,
                 ),
                 GradientText("Cryptzzz",
-                    gradient: LinearGradient(colors: [
-                      Color(0xFF000000),
-                      Color(0xFF0f005b),
-                      Color(0xFF2e0059),
-                      Color(0xFF5b0000),
-                      Color(0xFF000000)
+                    gradient: const LinearGradient(colors: [
+                      Color(0xFFE3FDFD),
+                      const Color(0xFFCBF1F5),
+                      Color.fromARGB(255, 196, 240, 245),
+                      Color(0xFFA6E3E9),
+                      const Color(0xFF71C9CE),
                     ]),
                     style: GoogleFonts.unifrakturCook(
                         fontStyle: FontStyle.normal, fontSize: 48)),
