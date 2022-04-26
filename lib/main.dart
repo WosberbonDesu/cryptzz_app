@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cryptzz_app/providers/currency_provider.dart';
 import 'package:cryptzz_app/ui/pages/loginPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,4 +28,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
         ),
       );
+}
+
+class AuthService {
+  final FirebaseAuth auth;
+  final FirebaseFirestore firebase;
+
+  AuthService(this.auth, this.firebase);
 }

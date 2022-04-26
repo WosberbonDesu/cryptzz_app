@@ -16,7 +16,7 @@ class RoundedPasswordInput extends StatelessWidget {
     return InputContainer(
         child: TextField(
       controller: controllerPas,
-      style: GoogleFonts.unifrakturCook(),
+      //style: GoogleFonts.unifrakturCook(),
       cursorColor: kPrimaryColor,
       obscureText: true,
       decoration: InputDecoration(

@@ -69,7 +69,11 @@ class LoginForm extends StatelessWidget {
                   controllerPas: passwordController,
                 ),
                 const SizedBox(height: 10),
-                const RoundedButton(title: 'LOGIN'),
+                RoundedButton(
+                  title: 'LOGIN',
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                ),
                 const SizedBox(height: 10),
               ],
             ),

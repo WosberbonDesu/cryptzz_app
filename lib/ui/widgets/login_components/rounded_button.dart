@@ -1,16 +1,22 @@
+import 'package:cryptzz_app/providers/AppState.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../business/constants/colors.dart';
 
 class RoundedButton extends StatelessWidget {
-  const RoundedButton({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const RoundedButton(
+      {Key? key,
+      required this.title,
+      required this.email,
+      required this.password})
+      : super(key: key);
 
   final String title;
+  final String email;
+  final String password;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +24,15 @@ class RoundedButton extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => CurrenciesWidget()));
+        title == "LOGIN"
+            ? signIn(email, password).then((value) => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CurrenciesWidget())))
+            : Container(
+                width: 100,
+                height: 100,
+                color: Colors.red,
+              );
+        // MaterialPageRoute(builder: (context) => CurrenciesWidget()));
       },
       borderRadius: BorderRadius.circular(30),
       child: Container(
@@ -36,5 +49,16 @@ class RoundedButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future signIn(String email, String password) async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+    } on Exception catch (E) {
+      print(E);
+      print("bir hata çıkageldi");
+    }
+    ;
   }
 }

@@ -71,7 +71,11 @@ class RegisterForm extends StatelessWidget {
 
                   const SizedBox(height: 10),
 
-                  RoundedButton(title: 'SIGN UP'),
+                  RoundedButton(
+                    title: 'SIGN UP',
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  ),
 
                   const SizedBox(height: 10),
                 ],

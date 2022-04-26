@@ -21,7 +21,7 @@ class RoundedInput extends StatelessWidget {
     return InputContainer(
         child: TextField(
       controller: controller,
-      style: GoogleFonts.unifrakturCook(),
+      //style: GoogleFonts.unifrakturCook(),
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
           icon: Icon(icon, color: kPrimaryColor),
