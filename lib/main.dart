@@ -12,6 +12,8 @@ Future main() async {
   runApp(MyApp());
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => CurrencyProvider(),
         child: MaterialApp(
+          navigatorKey: navigatorKey,
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,

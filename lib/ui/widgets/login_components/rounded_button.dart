@@ -5,18 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../business/constants/colors.dart';
+import '../../../business/constants/global_context.dart';
+import '../../../main.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton(
       {Key? key,
       required this.title,
       required this.email,
+      this.name,
       required this.password})
       : super(key: key);
 
   final String title;
   final String email;
   final String password;
+  final String? name;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +31,7 @@ class RoundedButton extends StatelessWidget {
         title == "LOGIN"
             ? signIn(email, password).then((value) => Navigator.push(context,
                 MaterialPageRoute(builder: (context) => CurrenciesWidget())))
-            : Container(
-                width: 100,
-                height: 100,
-                color: Colors.red,
-              );
+            : signUp(email, password, name!);
         // MaterialPageRoute(builder: (context) => CurrenciesWidget()));
       },
       borderRadius: BorderRadius.circular(30),
@@ -52,6 +52,14 @@ class RoundedButton extends StatelessWidget {
   }
 
   Future signIn(String email, String password) async {
+    showDialog(
+        context: NavigationService.navigatorKey.currentContext!,
+        builder: (context) => Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ));
+
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -59,6 +67,27 @@ class RoundedButton extends StatelessWidget {
       print(E);
       print("bir hata çıkageldi");
     }
-    ;
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
+  }
+
+  Future signUp(String email, String password, String name) async {
+    showDialog(
+      builder: (context) => Center(
+        child: CircularProgressIndicator(color: Colors.white),
+      ),
+      context: NavigationService.navigatorKey.currentContext!,
+    );
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+    } on Exception catch (e) {
+      showDialog(
+        context: NavigationService.navigatorKey.currentContext!,
+        builder: (context) => Center(
+            child: CircularProgressIndicator(
+          color: Colors.white,
+        )),
+      );
+    }
   }
 }

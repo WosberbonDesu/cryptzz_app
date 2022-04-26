@@ -56,8 +56,8 @@ class RegisterForm extends StatelessWidget {
 
                   RoundedInput(
                     icon: Icons.mail,
-                    hint: 'Username',
-                    controller: usernameController,
+                    hint: 'Mail',
+                    controller: emailController,
                   ),
 
                   RoundedInput(
@@ -75,6 +75,7 @@ class RegisterForm extends StatelessWidget {
                     title: 'SIGN UP',
                     email: emailController.text.trim(),
                     password: passwordController.text.trim(),
+                    name: nameController.text.trim(),
                   ),
 
                   const SizedBox(height: 10),
