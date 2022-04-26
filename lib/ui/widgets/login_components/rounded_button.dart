@@ -1,4 +1,5 @@
 import 'package:cryptzz_app/providers/AppState.dart';
+import 'package:cryptzz_app/ui/pages/tab_pages/main_tab.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +30,11 @@ class RoundedButton extends StatelessWidget {
     return InkWell(
       onTap: () {
         title == "LOGIN"
-            ? signIn(email, password).then((value) => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => CurrenciesWidget())))
-            : signUp(email, password, name!);
+            ? signIn(email, password).then((value) => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => TabsScreen())))
+            : title == "SIGN UP"
+                ? signUp(email, password, name!)
+                : print("wtf");
         // MaterialPageRoute(builder: (context) => CurrenciesWidget()));
       },
       borderRadius: BorderRadius.circular(30),
@@ -52,14 +55,6 @@ class RoundedButton extends StatelessWidget {
   }
 
   Future signIn(String email, String password) async {
-    showDialog(
-        context: NavigationService.navigatorKey.currentContext!,
-        builder: (context) => Center(
-              child: CircularProgressIndicator(
-                color: Colors.white,
-              ),
-            ));
-
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -71,23 +66,18 @@ class RoundedButton extends StatelessWidget {
   }
 
   Future signUp(String email, String password, String name) async {
-    showDialog(
-      builder: (context) => Center(
-        child: CircularProgressIndicator(color: Colors.white),
-      ),
-      context: NavigationService.navigatorKey.currentContext!,
-    );
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
     } on Exception catch (e) {
-      showDialog(
-        context: NavigationService.navigatorKey.currentContext!,
-        builder: (context) => Center(
-            child: CircularProgressIndicator(
-          color: Colors.white,
-        )),
-      );
+      //showDialog(
+      //context: NavigationService.navigatorKey.currentContext!,
+      //builder: (context) => Center(
+      //  child: CircularProgressIndicator(
+      //color: Colors.white,
+      //)),
+      // );
+      print("hello");
     }
   }
 }

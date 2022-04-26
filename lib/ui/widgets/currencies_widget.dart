@@ -20,8 +20,11 @@ class CurrenciesWidget extends StatelessWidget {
       );
     } else {
       print(buildGridColumns());
-      return SfDataGrid(
-          source: currencyDataSource, columns: buildGridColumns());
+      return Padding(
+        padding: EdgeInsets.only(top: 50),
+        child:
+            SfDataGrid(source: currencyDataSource, columns: buildGridColumns()),
+      );
     }
   }
 
@@ -58,6 +61,6 @@ class CurrenciesWidget extends StatelessWidget {
       ];
   Widget buildLabel(String text) => Text(
         text,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       );
 }

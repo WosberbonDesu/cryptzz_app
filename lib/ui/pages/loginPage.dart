@@ -1,3 +1,4 @@
+import 'package:cryptzz_app/ui/pages/tab_pages/main_tab.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen>
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return CurrenciesWidget();
+            return const TabsScreen();
           } else {
             return Scaffold(
               body: Stack(
