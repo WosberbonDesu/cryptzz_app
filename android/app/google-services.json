@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "462607395147",
+    "project_id": "watchful-bonus-325613",
+    "storage_bucket": "watchful-bonus-325613.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462607395147:android:cd6487283adbeff05d20ce",
+        "android_client_info": {
+          "package_name": "com.example.cryptzz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462607395147-2ev1jmqhomhhq301tquo8ttfjs72qgib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw60jLF5lwNJPerdOai8Qe8Nrg9N1LUzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462607395147-2ev1jmqhomhhq301tquo8ttfjs72qgib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

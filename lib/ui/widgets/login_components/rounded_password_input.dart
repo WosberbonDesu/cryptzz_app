@@ -4,14 +4,18 @@ import '../../../business/constants/colors.dart';
 import 'input_container.dart';
 
 class RoundedPasswordInput extends StatelessWidget {
-  const RoundedPasswordInput({Key? key, required this.hint}) : super(key: key);
+  const RoundedPasswordInput(
+      {Key? key, required this.controllerPas, required this.hint})
+      : super(key: key);
 
   final String hint;
+  final TextEditingController controllerPas;
 
   @override
   Widget build(BuildContext context) {
     return InputContainer(
         child: TextField(
+      controller: controllerPas,
       style: GoogleFonts.unifrakturCook(),
       cursorColor: kPrimaryColor,
       obscureText: true,

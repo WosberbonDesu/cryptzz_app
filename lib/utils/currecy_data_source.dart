@@ -33,8 +33,7 @@ class CurrencyDataSource extends DataGridSource {
             return buildIdRow(currency);
           case CurrencyColumn.price:
             return buildPriceRow(currency.price);
-          case CurrencyColumn.marketCap:
-            return buildMarketCap(currency.marketCap);
+
           default:
             return Text("Hello", style: TextStyle(color: Colors.white));
         }
