@@ -3,6 +3,7 @@ import 'package:cryptzz_app/business/constants/colors.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -19,7 +20,19 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Widget> _pages = [
     const CurrenciesWidget(),
-    Container(),
+    Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [
+          Color(0xFFF67280),
+          Color(0xFFC06C84),
+          Color(0xFF6C5B7B),
+          Color(0xFF355C7D),
+        ],
+      )),
+    ),
     Container(),
     Container(),
   ];
@@ -34,29 +47,31 @@ class _TabsScreenState extends State<TabsScreen> {
           : _pages[_currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: darkBlue,
+        backgroundColor: Color.fromRGBO(11, 12, 54, 1),
         onPressed: () {},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Icon(
-              Icons.add_task_outlined,
+              FeatherIcons.code,
               color: Colors.white,
             ),
             SizedBox(height: 2),
             Text(
-              "Ödeme",
-              style: TextStyle(color: Colors.white, fontSize: 11),
+              "Cryptzz",
+              style:
+                  GoogleFonts.unifrakturMaguntia(fontStyle: FontStyle.normal),
             )
           ],
         ),
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar(
+          backgroundColor: Colors.black,
           icons: icons,
           gapLocation: GapLocation.center,
           notchSmoothness: NotchSmoothness.verySmoothEdge,
-          activeColor: mainOrange,
-          inactiveColor: grey3,
+          activeColor: Color.fromARGB(255, 64, 65, 155),
+          inactiveColor: Colors.white,
           activeIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i)),
     );
@@ -85,9 +100,9 @@ class _TabsScreenState extends State<TabsScreen> {
   // }
 
   List<IconData> icons = [
-    FeatherIcons.home,
+    FeatherIcons.creditCard,
     Icons.account_balance_wallet_outlined,
-    FeatherIcons.mail,
-    FeatherIcons.user
+    FeatherIcons.grid,
+    FeatherIcons.hexagon
   ];
 }

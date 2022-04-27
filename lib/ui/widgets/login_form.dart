@@ -44,17 +44,17 @@ class LoginForm extends StatelessWidget {
                 ),
                 GradientText("Cryptzzz",
                     gradient: const LinearGradient(colors: [
-                      Color(0xFFE3FDFD),
-                      const Color(0xFFCBF1F5),
-                      Color.fromARGB(255, 196, 240, 245),
-                      Color(0xFFA6E3E9),
-                      const Color(0xFF71C9CE),
+                      Color(0xFF04009A),
+                      const Color(0xFF77ACF1),
+                      Color(0xFF3EDBF0),
+                      const Color(0xFFC0FEFC),
+                      Colors.white
                     ]),
                     style: GoogleFonts.unifrakturCook(
                         fontStyle: FontStyle.normal, fontSize: 48)),
                 const SizedBox(height: 40),
                 Image.asset(
-                  'assets/nft-modified-1.png',
+                  'assets/cryptz.png',
                   width: 100,
                   height: 100,
                 ),

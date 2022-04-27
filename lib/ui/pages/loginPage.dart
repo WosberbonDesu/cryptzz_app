@@ -58,13 +58,7 @@ class _LoginScreenState extends State<LoginScreen>
           } else {
             return Scaffold(
               body: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdna.artstation.com/p/assets/images/images/022/476/346/large/michal-kvac-correct-reality-glitch-small.jpg?1575566214"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                color: Color.fromRGBO(11, 12, 54, 1),
                 child: Stack(
                   children: [
                     // Lets add some decorations
@@ -154,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen>
               topLeft: Radius.circular(100),
               topRight: Radius.circular(100),
             ),
-            color: kBackgroundColor),
+            color: Colors.black),
         alignment: Alignment.center,
         child: GestureDetector(
           onTap: !isLogin
@@ -170,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen>
               ? Text(
                   "Don't have an account? Sign up",
                   style: GoogleFonts.unifrakturCook(
-                      fontSize: 18, color: kPrimaryColor),
+                      fontSize: 18, color: Colors.white),
                 )
               : null,
         ),
