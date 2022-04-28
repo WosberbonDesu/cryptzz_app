@@ -1,10 +1,12 @@
 import 'package:cryptzz_app/business/constants/colors.dart';
+import 'package:cryptzz_app/models/fetch_coin/bid_data.dart';
 import 'package:cryptzz_app/ui/pages/loginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../business/constants/global_context.dart';
 import '../main.dart';
+import '../models/repository/repository.dart';
 import '../ui/widgets/globalWidgets/show_snackbar.dart';
 
 class AppState with ChangeNotifier {
@@ -24,6 +26,20 @@ class AppState with ChangeNotifier {
   dynamic notifications;
 
   addTransaction(num price, int type, DateTime date) async {
+    notifyListeners();
+  }
+
+  getCrypto() {
+    try {
+      late Future<BigDataModel> _futureCoins;
+      late Repository repository;
+      repository = Repository();
+      _futureCoins = repository.getCoins();
+      return _futureCoins;
+    } on Exception catch (e) {
+      print(e);
+      print("An error occured");
+    }
     notifyListeners();
   }
 
