@@ -32,7 +32,7 @@ class CancelButton extends StatelessWidget {
           child: IconButton(
             icon: Icon(Icons.close),
             onPressed: tapEvent,
-            color: kPrimaryColor,
+            color: Colors.white,
           ),
         ),
       ),

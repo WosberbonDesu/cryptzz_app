@@ -30,4 +30,4 @@ class RoundedInput extends StatelessWidget {
           border: InputBorder.none),
     ));
   }
-}
+}// bir sağdan vuruyorum bir soldan vuruyorum arada da haç çıkarıyorum

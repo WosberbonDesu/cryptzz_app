@@ -26,10 +26,15 @@ class _TabsScreenState extends State<TabsScreen> {
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
         colors: [
-          Color(0xFFF67280),
-          Color(0xFFC06C84),
-          Color(0xFF6C5B7B),
-          Color(0xFF355C7D),
+          Color(0xFF000000),
+          Color(0xFF150050),
+          Color(0xFF63F0071),
+          Color(0xFF610094),
+          Color.fromARGB(255, 146, 35, 206),
+          Color.fromARGB(255, 161, 86, 201),
+          Color.fromARGB(255, 187, 144, 211),
+          Color.fromARGB(255, 210, 197, 217),
+          Colors.white
         ],
       )),
     ),
@@ -68,6 +73,7 @@ class _TabsScreenState extends State<TabsScreen> {
       bottomNavigationBar: AnimatedBottomNavigationBar(
           backgroundColor: Colors.black,
           icons: icons,
+          splashColor: Colors.white,
           gapLocation: GapLocation.center,
           notchSmoothness: NotchSmoothness.verySmoothEdge,
           activeColor: Color.fromARGB(255, 64, 65, 155),
