@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../fetch_coin/bid_data.dart';
 
 class Repository {
-  static String mainUrl = "https://pro-api.coinmarketcap.com/v1/";
+  static String mainUrl = "https://sandbox-api.coinmarketcap.com/v1/";
   final String apiKey = "eca0cb13-814b-469c-a22b-b6282356f32d";
   var currencyListingAPI = '${mainUrl}cryptocurrency/listings/latest';
   Dio _dio = Dio();
