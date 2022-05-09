@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../models/chart_data_model.dart';
 import '../../../models/fetch_coin/data_model.dart';
+import '../../pages/tab_pages/pages/coin_detail_screen.dart';
 import 'coin_chart_widget.dart';
 import 'coin_logo_widget.dart';
 
@@ -34,9 +36,9 @@ class CoinListWidget extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-            child: Text(
-              "Crypto Currency",
-              style: Theme.of(context).textTheme.headline5,
+            child: Center(
+              child: Text("Crypto Currency",
+                  style: GoogleFonts.lobster(fontSize: 50)),
             ),
           ),
           const SizedBox(
@@ -57,7 +59,13 @@ class CoinListWidget extends StatelessWidget {
                   ChartData(coinPrice.percentChange_1h, 1),
                 ];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CoinDetailScreen(coin: coin)),
+                    );
+                  },
                   child: Container(
                     height: 160.0,
                     width: double.infinity,
@@ -65,7 +73,7 @@ class CoinListWidget extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(0, 0, 0, 0.6),
+                      color: Colors.black,
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Row(
