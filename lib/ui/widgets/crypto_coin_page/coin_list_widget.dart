@@ -15,6 +15,18 @@ class CoinListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> icons = [
+      "zec",
+      "rep",
+      "xmr",
+      "eth",
+      "algo",
+      "ada",
+      "eos",
+      "xrp",
+      "bch",
+      "btc"
+    ];
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +72,10 @@ class CoinListWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CoinLogoWidget(coin: coin),
+                        CoinLogoWidget(
+                          coin: coin,
+                          icon_names: icons[index],
+                        ),
                         CoinChartWidget(
                           data: data,
                           coinPrice: coinPrice,
