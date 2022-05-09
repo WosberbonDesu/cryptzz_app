@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../models/chart_data_model.dart';
+import '../../../models/fetch_coin/data_model.dart';
+import 'coin_chart_widget.dart';
+import 'coin_logo_widget.dart';
+
 class CoinListWidget extends StatelessWidget {
   final List<DataModel> coins;
 
@@ -40,13 +45,7 @@ class CoinListWidget extends StatelessWidget {
                   ChartData(coinPrice.percentChange_1h, 1),
                 ];
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CoinDetailScreen(coin: coin)),
-                    );
-                  },
+                  onTap: () {},
                   child: Container(
                     height: 160.0,
                     width: double.infinity,

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import '../../models/currency.dart';
 import 'package:http/http.dart' as http;
-
+/*
 class CryptoApi {
   static final key = "e9061432e623bc041dcfacfa986865b015586f32";
   static Future<List<Currency>> getCurrencies() async {
@@ -13,3 +13,4 @@ class CryptoApi {
     return body.map((item) => Currency.fromJson(item)).toList();
   }
 }
+*/

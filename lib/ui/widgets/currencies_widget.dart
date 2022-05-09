@@ -3,8 +3,8 @@ import 'package:cryptzz_app/providers/currency_provider.dart';
 import 'package:cryptzz_app/utils/currecy_data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
+/*
 class CurrenciesWidget extends StatelessWidget {
   const CurrenciesWidget({Key? key}) : super(key: key);
 
@@ -19,14 +19,22 @@ class CurrenciesWidget extends StatelessWidget {
         ),
       );
     } else {
-      print(buildGridColumns());
+      print("buildGridColumns");
       return Padding(
         padding: EdgeInsets.only(top: 50),
-        child:
-            SfDataGrid(source: currencyDataSource, columns: buildGridColumns()),
+        child: Container()
+            //SfDataGrid(source: currencyDataSource, columns: buildGridColumns()),
       );
     }
   }
+
+
+  Widget buildLabel(String text) => Text(
+        text,
+        style: TextStyle(color: Colors.black),
+      );
+}
+
 
   List<GridColumn> buildGridColumns() => <GridColumn>[
         GridColumn(
@@ -58,9 +66,4 @@ class CurrenciesWidget extends StatelessWidget {
           columnName: CurrencyColumn.marketCap.toString(),
           label: buildLabel("MarketCap"),
         ),
-      ];
-  Widget buildLabel(String text) => Text(
-        text,
-        style: TextStyle(color: Colors.black),
-      );
-}
+      ];*/
