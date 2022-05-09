@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:cryptzz_app/business/constants/colors.dart';
+import 'package:cryptzz_app/ui/pages/tab_pages/pages/crypto_coins_showing.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -19,7 +20,7 @@ class _TabsScreenState extends State<TabsScreen> {
   changeLoading() => setState(() => isLoading = !isLoading);
 
   final List<Widget> _pages = [
-    const CurrenciesWidget(),
+    Container(),
     Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -38,7 +39,7 @@ class _TabsScreenState extends State<TabsScreen> {
         ],
       )),
     ),
-    Container(),
+    ShowCryptoCoinPage(),
     Container(),
   ];
 

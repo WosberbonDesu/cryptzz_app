@@ -10,37 +10,27 @@ import '../models/repository/repository.dart';
 import '../ui/widgets/globalWidgets/show_snackbar.dart';
 
 class AppState with ChangeNotifier {
-  final AuthService? authService;
-
-  AppState({
-    required this.authService,
-  }) {}
-
   double queryWidth =
       MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.width;
 
   double queryHeight =
       MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.height;
-  String dateTime = "";
 
-  dynamic notifications;
-
-  addTransaction(num price, int type, DateTime date) async {
-    notifyListeners();
-  }
-
-  getCrypto() {
+  Future getCrypto() async {
     try {
-      late Future<BigDataModel> _futureCoins;
+      late BigDataModel _futureCoins;
+
       late Repository repository;
       repository = Repository();
-      _futureCoins = repository.getCoins();
+      _futureCoins = await repository.getCoins();
+      print("burası deneniyor");
+      print(_futureCoins);
+
       return _futureCoins;
     } on Exception catch (e) {
       print(e);
       print("An error occured");
     }
-    notifyListeners();
   }
 
 // Hello
