@@ -91,11 +91,11 @@ class CoinDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Max Supply: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(color: Colors.white),
                             ),
                             Text(
                               coin.maxSupply.toString(),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -105,11 +105,11 @@ class CoinDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Market pairs: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(color: Colors.white),
                             ),
                             Text(
                               coin.numMarketPairs.toString(),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -119,12 +119,12 @@ class CoinDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Market Cap: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(color: Colors.white),
                             ),
                             Text(
                               coin.quoteModel.usdModel.marketCap
                                   .toStringAsFixed(2),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),

@@ -41,7 +41,7 @@ class CoinDetailAppBar extends StatelessWidget {
             ),
             title: Text(
               coin.name + " " + "btc" + " #" + coin.cmcRank.toString(),
-              style: Theme.of(context).textTheme.headline5,
+              style: TextStyle(color: Colors.white),
               overflow: TextOverflow.ellipsis,
             ),
             // subtitle: Text(coin.slug),
