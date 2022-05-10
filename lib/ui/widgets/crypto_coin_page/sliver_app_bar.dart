@@ -113,3 +113,4 @@ class CollapsingList extends StatelessWidget {
     );
   }
 }
+// bu kısım sonradan eklenecek
