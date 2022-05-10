@@ -29,6 +29,7 @@ class CoinListWidget extends StatelessWidget {
       "bch",
       "btc"
     ];
+
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
