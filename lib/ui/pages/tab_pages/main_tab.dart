@@ -1,5 +1,8 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:cryptzz_app/business/constants/colors.dart';
+import 'package:cryptzz_app/ui/pages/account_wallet_page/account_wallet_page.dart';
+import 'package:cryptzz_app/ui/pages/nft_screen/nft_detail_creen.dart';
+import 'package:cryptzz_app/ui/pages/nft_screen/nft_main_screen.dart';
 import 'package:cryptzz_app/ui/pages/tab_pages/pages/crypto_coins_showing.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +23,7 @@ class _TabsScreenState extends State<TabsScreen> {
   changeLoading() => setState(() => isLoading = !isLoading);
 
   final List<Widget> _pages = [
-    Container(),
+    NftMainScreen(),
     Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -40,7 +43,7 @@ class _TabsScreenState extends State<TabsScreen> {
       )),
     ),
     ShowCryptoCoinPage(),
-    Container(),
+    CardScreen(),
   ];
 
   @override
