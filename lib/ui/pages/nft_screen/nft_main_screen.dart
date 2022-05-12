@@ -74,7 +74,7 @@ class NftMainScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    'Check out this raffle for you guys only! new coin minted show some love.',
+                    'NFT CryptZzZ market',
                     style: TextStyle(
                       color: Colors.white70,
                       height: 1.2,

@@ -49,6 +49,7 @@ dependencies:
   cached_network_image: ^3.2.0
   syncfusion_flutter_charts: ^20.1.52
   syncfusion_flutter_core: ^20.1.52
+  
 
 dev_dependencies:
   flutter_test:

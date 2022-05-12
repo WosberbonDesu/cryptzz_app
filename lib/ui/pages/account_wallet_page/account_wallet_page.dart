@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CardScreen extends StatelessWidget {
   @override
@@ -133,20 +134,18 @@ class CardScreen extends StatelessWidget {
                             children: <Widget>[
                               CircleAvatar(
                                 radius: 16,
-                                backgroundColor:
-                                    Color.fromRGBO(50, 172, 121, 1),
-                                child: Icon(
-                                  Icons.check,
-                                  color: Colors.white,
-                                  size: 24,
+                                backgroundColor: Color.fromRGBO(35, 60, 103, 1),
+                                child: SvgPicture.network(
+                                  "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
+                                  color: Color(0xFFF6851B),
                                 ),
                               ),
                               Text(
-                                "VISA",
+                                "METAMASK",
                                 style: TextStyle(
                                     fontStyle: FontStyle.italic,
                                     fontSize: 28,
-                                    color: Colors.white,
+                                    color: Color(0xFFF6851B),
                                     fontWeight: FontWeight.w900),
                               )
                             ],
@@ -180,7 +179,7 @@ class CardScreen extends StatelessWidget {
                                         letterSpacing: 2.0),
                                   ),
                                   Text(
-                                    "Markow Markow Markow",
+                                    "Markow Markow",
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[100],
@@ -363,14 +362,14 @@ class CardScreen extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Icon(
-                              Icons.mobile_screen_share,
+                              Icons.reduce_capacity_rounded,
                               color: Colors.lightBlue[900],
                             ),
                             SizedBox(
                               width: 16,
                             ),
                             Text(
-                              "ATM Withdraws",
+                              "ETH Withdraws",
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
