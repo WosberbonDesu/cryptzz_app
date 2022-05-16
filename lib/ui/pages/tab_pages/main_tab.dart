@@ -4,6 +4,7 @@ import 'package:cryptzz_app/ui/pages/account_wallet_page/account_wallet_page.dar
 import 'package:cryptzz_app/ui/pages/nft_screen/nft_detail_creen.dart';
 import 'package:cryptzz_app/ui/pages/nft_screen/nft_main_screen.dart';
 import 'package:cryptzz_app/ui/pages/tab_pages/pages/crypto_coins_showing.dart';
+import 'package:cryptzz_app/ui/pages/tab_pages/pages/metamask_wallet_page.dart';
 import 'package:cryptzz_app/ui/widgets/currencies_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -24,24 +25,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Widget> _pages = [
     NftMainScreen(),
-    Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        begin: Alignment.topRight,
-        end: Alignment.bottomLeft,
-        colors: [
-          Color(0xFF000000),
-          Color(0xFF150050),
-          Color(0xFF63F0071),
-          Color(0xFF610094),
-          Color.fromARGB(255, 146, 35, 206),
-          Color.fromARGB(255, 161, 86, 201),
-          Color.fromARGB(255, 187, 144, 211),
-          Color.fromARGB(255, 210, 197, 217),
-          Colors.white
-        ],
-      )),
-    ),
+    MetamaskWalletPage(),
     ShowCryptoCoinPage(),
     CardScreen(),
   ];
@@ -116,3 +100,23 @@ class _TabsScreenState extends State<TabsScreen> {
     FeatherIcons.hexagon
   ];
 }
+
+/*
+Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [
+          Color(0xFF000000),
+          Color(0xFF150050),
+          Color(0xFF63F0071),
+          Color(0xFF610094),
+          Color.fromARGB(255, 146, 35, 206),
+          Color.fromARGB(255, 161, 86, 201),
+          Color.fromARGB(255, 187, 144, 211),
+          Color.fromARGB(255, 210, 197, 217),
+          Colors.white
+        ],
+      )),
+    ),*/

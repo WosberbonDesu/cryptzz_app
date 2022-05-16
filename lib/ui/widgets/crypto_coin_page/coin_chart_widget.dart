@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+
 import '../../../models/chart_data_model.dart';
 import '../../../models/fetch_coin/usd_model.dart';
 
@@ -22,24 +22,10 @@ class CoinChartWidget extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: const EdgeInsets.only(left: 16.0),
-              height: 96.0,
-              width: double.infinity,
-              child: SfCartesianChart(
-                plotAreaBorderWidth: 0,
-                primaryXAxis: CategoryAxis(isVisible: false),
-                primaryYAxis: CategoryAxis(isVisible: false),
-                legend: Legend(isVisible: false),
-                tooltipBehavior: TooltipBehavior(enable: false),
-                series: <ChartSeries<ChartData, String>>[
-                  LineSeries<ChartData, String>(
-                    dataSource: data,
-                    xValueMapper: (ChartData sales, _) => sales.year.toString(),
-                    yValueMapper: (ChartData sales, _) => sales.value,
-                  ),
-                ],
-              ),
-            ),
+                padding: const EdgeInsets.only(left: 16.0),
+                height: 96.0,
+                width: double.infinity,
+                child: Container()),
           ),
           color == Colors.green
               ? Container()
@@ -65,3 +51,20 @@ class CoinChartWidget extends StatelessWidget {
     );
   }
 }
+/*
+
+SfCartesianChart(
+                plotAreaBorderWidth: 0,
+                primaryXAxis: CategoryAxis(isVisible: false),
+                primaryYAxis: CategoryAxis(isVisible: false),
+                legend: Legend(isVisible: false),
+                tooltipBehavior: TooltipBehavior(enable: false),
+                series: <ChartSeries<ChartData, String>>[
+                  LineSeries<ChartData, String>(
+                    dataSource: data,
+                    xValueMapper: (ChartData sales, _) => sales.year.toString(),
+                    yValueMapper: (ChartData sales, _) => sales.value,
+                  ),
+                ],
+              ),
+*/
