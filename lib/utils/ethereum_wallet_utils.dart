@@ -1,71 +1,72 @@
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'package:web3dart/web3dart.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:web3dart/web3dart.dart';
+import 'package:http/http.dart' as http;
 
 class EthereumUtils {
-  http.Client? httpClient;
-  Web3Client? ethClient;
-  final contractAddress = dotenv.env["COIN_CONTRACT_ADDRESS"];
+  late Web3Client web3client;
+  late http.Client httpClient;
+  final contractAddress = dotenv.env['CONTRACT_ADDRESS'];
 
-  void initialSetup() {
+  void initial() {
     httpClient = http.Client();
-    String infura =
-        "https://rinkeby.infura.io/v3/" + dotenv.env['INFURA_PROJECT_ID']!;
-    ethClient = Web3Client(infura, httpClient!);
-  }
-
-  Future<DeployedContract> getDeployedContract() async {
-    String abi = await rootBundle.loadString("assets/abi.json");
-    final contract = DeployedContract(ContractAbi.fromJson(abi, "Replica"),
-        EthereumAddress.fromHex(contractAddress!));
-
-    return contract;
+    String infuraApi =
+        "https://rinkeby.infura.io/v3/f2ca36c4c9524ca387b4180e9427f95e";
+    web3client = Web3Client(infuraApi, httpClient);
   }
 
   Future getBalance() async {
-    List<dynamic> result = await query("getBalance", []);
-    var myData = result[0];
-    return myData;
-  }
-
-  Future<String> withdrawCoin(double amount) async {
-    var bigAmount = BigInt.from(amount);
-    var response = await submit("withdrawBalance", [bigAmount]);
-    return response;
-  }
-
-  Future<String> depositCoin(double amount) async {
-    var bigAmount = BigInt.from(amount);
-    var response = await submit("depositBalance", [bigAmount]);
-    return response;
-  }
-
-  Future<List<dynamic>> query(String functionName, List<dynamic> args) async {
     final contract = await getDeployedContract();
-    final ethFunction = contract.function(functionName);
-    final result = await ethClient!
-        .call(contract: contract, function: ethFunction, params: args);
+    final etherFunction = contract.function("getBalance");
+    final result = await web3client
+        .call(contract: contract, function: etherFunction, params: []);
+    List<dynamic> res = result;
+    return res[0];
+  }
+
+  Future<String> sendBalance(int amount) async {
+    var bigAmount = BigInt.from(amount);
+    EthPrivateKey privateKeyCred =
+        EthPrivateKey.fromHex(dotenv.env['METAMASK_PRIVATE_KEY']!);
+    DeployedContract contract = await getDeployedContract();
+    final etherFunction = contract.function("sendBalance");
+    final result = await web3client.sendTransaction(
+        privateKeyCred,
+        Transaction.callContract(
+          contract: contract,
+          function: etherFunction,
+          parameters: [bigAmount],
+          maxGas: 100000,
+        ),
+        chainId: 4,
+        fetchChainIdFromNetworkId: false);
     return result;
   }
 
-  Future<String> submit(String functionName, List<dynamic> args) async {
-    try {
-      EthPrivateKey credential =
-          EthPrivateKey.fromHex(dotenv.env['METAMASK_PRIVATE_KEY']!);
-      DeployedContract contract = await getDeployedContract();
-      final ethFunction = contract.function(functionName);
-      final result = await ethClient!.sendTransaction(
-          credential,
-          Transaction.callContract(
-              contract: contract,
-              function: ethFunction,
-              parameters: args,
-              maxGas: 100000),
-          chainId: 4);
-      return result;
-    } catch (e) {
-      return e.toString();
-    }
+  Future<String> withDrawBalance(int amount) async {
+    var bigAmount = BigInt.from(amount);
+    EthPrivateKey privateKeyCred =
+        EthPrivateKey.fromHex(dotenv.env['METAMASK_PRIVATE_KEY']!);
+    DeployedContract contract = await getDeployedContract();
+    final etherFunction = contract.function("withDrawBalance");
+    final result = await web3client.sendTransaction(
+        privateKeyCred,
+        Transaction.callContract(
+          contract: contract,
+          function: etherFunction,
+          parameters: [bigAmount],
+          maxGas: 100000,
+        ),
+        chainId: 4,
+        fetchChainIdFromNetworkId: false);
+    return result;
+  }
+// ORGONET integrated BlaBlaAAaBLAf
+
+  Future<DeployedContract> getDeployedContract() async {
+    String abi = await rootBundle.loadString("assets/abi.json");
+    final contract = DeployedContract(ContractAbi.fromJson(abi, "BasicDapp"),
+        EthereumAddress.fromHex(contractAddress!));
+    return contract;
   }
 }

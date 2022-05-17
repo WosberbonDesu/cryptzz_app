@@ -5,19 +5,6 @@
 		"type": "constructor"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "depositBalance",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "getBalance",
 		"outputs": [
@@ -38,7 +25,20 @@
 				"type": "uint256"
 			}
 		],
-		"name": "withdrawBalance",
+		"name": "sendBalance",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withDrawBalance",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
